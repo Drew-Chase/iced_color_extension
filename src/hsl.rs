@@ -111,7 +111,7 @@ impl Hsl {
             (c, 0.0, x)
         };
         let m = l - c * 0.5;
-        Color::from_rgba(r1 + m, g1 + m, b1 + m, a)
+        Color::from_rgba(r1 + m, g1 + m, b1 + m, clamp01(a))
     }
 }
 

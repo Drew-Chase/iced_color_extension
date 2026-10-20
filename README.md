@@ -4,6 +4,8 @@ Extended color formats and manipulation for [iced](https://iced.rs): **HSL**, **
 
 Iced's `Color` only supports hex strings and a handful of runtime helpers. This crate adds:
 
+The macros accept plain numbers or CSS-style percentage literals (`hsl!(147, 100%, 57%)`, `rgb!(100%, 20%, 20%, 50%)`, `oklab!(50%, 0.1, 0.1)`) — percentages must be literal values; pass fractions for computed inputs.
+
 - **New formats** — `hsl!`, `rgb!`, `oklab!` macros and `Hsl` / `Rgb` / `Oklab` structs with conversions to/from `iced::Color`
 - **Perceptual manipulation** — lightness, hue, saturation, contrast (CSS-style and WCAG) and alpha
 - **Compile-time support** — every conversion and manipulation is a `const fn` (including OKLAB, via const Newton-iteration `cbrt`/`x^2.4`), so palettes can be built in `const` items
@@ -23,9 +25,10 @@ use iced_core::Color;
 use iced_color_extension::{hsl, rgb, oklab, IcedColorExt};
 
 // Compile-time colors — every macro and conversion is a `const fn`:
-const ACCENT: Color = hsl!(210.0, 0.8, 0.5);
+const ACCENT: Color = hsl!(147, 100%, 57%);
 const DANGER: Color = rgb!(220, 60, 60);
 const SUCCESS: Color = oklab!(0.72, -0.15, 0.1);
+const GHOST: Color = rgb!(100%, 20%, 20%, 50%);
 
 // Runtime manipulation through the extension trait:
 let text = DANGER.lighten(0.15).ensure_contrast(ACCENT, 4.5);
