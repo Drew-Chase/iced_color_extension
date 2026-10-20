@@ -47,20 +47,16 @@ const READABLE: Color = ops::ensure_contrast(MUTED_TEXT, Color::WHITE, 4.5);
 
 ## Semantics
 
-| Operation | Basis |
-|---|---|
-| `lighten` / `darken` / `with_lightness` | HSL lightness |
-| `with_luminance` / `adjust_luminance` | OKLAB perceptual lightness (gamut-mapped) |
-| `relative_luminance` / `contrast_ratio` / `ensure_contrast` | WCAG 2.1 |
-| `with_contrast` | CSS `filter: contrast()` |
-| `with_hue` / `rotate_hue` / `with_saturation` | HSL |
+| Operation                                                   | Basis                                     |
+|-------------------------------------------------------------|-------------------------------------------|
+| `lighten` / `darken` / `with_lightness`                     | HSL lightness                             |
+| `with_luminance` / `adjust_luminance`                       | OKLAB perceptual lightness (gamut-mapped) |
+| `relative_luminance` / `contrast_ratio` / `ensure_contrast` | WCAG 2.1                                  |
+| `with_contrast`                                             | CSS `filter: contrast()`                  |
+| `with_hue` / `rotate_hue` / `with_saturation`               | HSL                                       |
 
 OKLAB colors outside the sRGB gamut are mapped back by reducing chroma while preserving lightness and hue.
 
 ## MSRV
 
 Rust 1.88 (matching iced 0.14).
-
-## License
-
-MIT
