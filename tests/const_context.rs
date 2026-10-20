@@ -4,9 +4,13 @@
 use iced_color_extension::{Color, IcedColorExt, hsl, oklab, rgb};
 
 const ACCENT: Color = hsl!(210.0, 0.8, 0.5);
+const ACCENT_CSS: Color = hsl!(147, 100%, 57%);
 const GHOST: Color = hsl!(210.0, 0.8, 0.5, 0.4);
+const GHOST_CSS: Color = hsl!(147, 100%, 57%, 50%);
 const DANGER: Color = rgb!(220, 60, 60);
+const DANGER_CSS: Color = rgb!(100%, 20%, 20%, 50%);
 const SUCCESS: Color = oklab!(0.72, -0.15, 0.1);
+const SUCCESS_CSS: Color = oklab!(50%, -0.15, 0.1);
 const TEXT: Color =
     iced_color_extension::ops::ensure_contrast(Color::from_rgb8(128, 128, 128), Color::WHITE, 4.5);
 
@@ -17,6 +21,11 @@ fn const_items_evaluate() {
     assert_eq!(ACCENT.a, 1.0);
     assert_eq!(GHOST.a, 0.4);
     assert_eq!(OPAQUE.a, 0.5);
+    // Percentage forms agree with their fraction equivalents.
+    assert_eq!(ACCENT_CSS, hsl!(147, 1, 0.57));
+    assert_eq!(GHOST_CSS.a, 0.5);
+    assert_eq!(DANGER_CSS, rgb!(255, 51, 51).scale_alpha(0.5));
+    assert_eq!(SUCCESS_CSS, oklab!(0.5, -0.15, 0.1));
     for channel in [SUCCESS.r, SUCCESS.g, SUCCESS.b] {
         assert!((0.0..=1.0).contains(&channel));
     }

@@ -20,7 +20,7 @@
 //! use iced_color_extension::{hsl, rgb, oklab, IcedColorExt};
 //!
 //! // Compile-time colors — every macro and conversion is a `const fn`:
-//! const ACCENT: Color = hsl!(210.0, 0.8, 0.5);
+//! const ACCENT: Color = hsl!(210, 80%, 50%);
 //! const DANGER: Color = rgb!(220, 60, 60);
 //! const SUCCESS: Color = oklab!(0.72, -0.15, 0.1);
 //!
@@ -45,7 +45,7 @@
 //! use iced_core::Color;
 //! use iced_color_extension::{hsl, ops};
 //!
-//! const MUTED_TEXT: Color = ops::lighten(ops::with_saturation(hsl!(210.0, 0.8, 0.5), 0.2), 0.75);
+//! const MUTED_TEXT: Color = ops::lighten(ops::with_saturation(hsl!(210, 80%, 50%), 0.2), 0.75);
 //! ```
 //!
 //! # Semantics

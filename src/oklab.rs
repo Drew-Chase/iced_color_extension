@@ -92,7 +92,7 @@ impl Oklab {
             linear_to_srgb(clamp01(r)),
             linear_to_srgb(clamp01(g)),
             linear_to_srgb(clamp01(bl)),
-            alpha,
+            clamp01(alpha),
         )
     }
 

@@ -8,7 +8,7 @@
 use core::fmt;
 
 use crate::Color;
-use crate::const_math::round_for_display;
+use crate::const_math::{clamp01, round_for_display};
 
 /// A color in the sRGB color space with an alpha channel.
 ///
@@ -53,8 +53,15 @@ impl Rgb {
     }
 
     /// Converts to iced's sRGB [`Color`]. `const`-callable.
+    ///
+    /// Channels are clamped into `0.0..=1.0`.
     pub const fn to_color(self) -> Color {
-        Color::from_rgba(self.r, self.g, self.b, self.a)
+        Color::from_rgba(
+            clamp01(self.r),
+            clamp01(self.g),
+            clamp01(self.b),
+            clamp01(self.a),
+        )
     }
 
     /// Creates an [`Rgb`] from iced's sRGB [`Color`]. `const`-callable.
