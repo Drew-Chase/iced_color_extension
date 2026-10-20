@@ -7,6 +7,8 @@ description = "Extended color formats and manipulation for iced: HSL, RGB and OK
 license = "MIT"
 keywords = ["iced", "color", "hsl", "oklab", "gui"]
 categories = ["gui", "graphics"]
+repository = "https://github.com/Drew-Chase/iced_color_extension"
+authors = ["Drew Chase"]
 
 [dependencies]
 iced_core = "0.14"
