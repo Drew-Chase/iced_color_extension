@@ -2,5 +2,15 @@
 name = "iced_color_extension"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.88"
+description = "Extended color formats and manipulation for iced: HSL, RGB and OKLAB with compile-time (const) support"
+license = "MIT"
+keywords = ["iced", "color", "hsl", "oklab", "gui"]
+categories = ["gui", "graphics"]
 
 [dependencies]
+iced_core = "0.14"
+
+[features]
+default = ["std"]
+std = []
